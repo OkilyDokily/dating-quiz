@@ -14,11 +14,15 @@ $(document).ready(function(){
       }
         
     })
-    var mapped = celebrityArray.map(item => item[2]);
-    var highest = Math.max(...mapped);
-    var filter = celebrityArray.filter(function(celebrity){
+    var mapToNumber = celebrityArray.map(item => item[2]);
+    var highest = Math.max(...mapToNumber);
+    var filteredCelebrities = celebrityArray.filter(function(celebrity){
       celebrity[2] === highest; 
     });
     
+    filteredCelebrities.forEach(function(celebrity){
+        $("div.celebritydiv."+ celebrity[0]).show();
+        $("div.celebritydiv."+ celebrity[1]).show();
+    });
   })
 });
