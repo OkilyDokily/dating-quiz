@@ -8,12 +8,17 @@ $(document).ready(function(){
         if(
         $("input[name=" + item + "]"+":checked").hasClass(celebrity[0]) &&
         $("input[name=" + item + "]"+":checked").hasClass(celebrity[1]))
-        then{
+        {
           celebrity[2]++;
         }
       }
         
     })
+    var mapped = celebrityArray.map(item => item[2]);
+    var highest = Math.max(...mapped);
+    var filter = celebrityArray.filter(function(celebrity){
+      celebrity[2] === highest; 
+    });
     
   })
 });
