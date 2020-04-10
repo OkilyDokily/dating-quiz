@@ -12,3 +12,9 @@
 #bestmatch{
   display: none;
 }
+
+.error{
+  background-color: red;
+  columns: red;
+  border: red solid 4px;
+}

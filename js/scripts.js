@@ -18,9 +18,8 @@ function resetValues(){
 
 function scoreCelebrities(classArray){
   classArray.forEach(function(item){
+    var classToArray = item.split(" ");
     for(i = 0; i < celebrityArray.length; i++){
-        var classToArray = item.split(" ");
-        console.log(classToArray);
         if(celebrityArray[i].includes(classToArray[0]) &&
           celebrityArray[i].includes(classToArray[1]))
           {
@@ -30,11 +29,10 @@ function scoreCelebrities(classArray){
   });
 }
 
-
 $(document).ready(function(){
   $("#formOne").submit(function(e){
     e.preventDefault();
-
+    validateRadios();
     hide();
     
     var classArray = [];
@@ -56,7 +54,23 @@ $(document).ready(function(){
       celebrityArray.forEach(function(celebrity){
         $("div.celebrityimg."+ celebrity[0]).hide();
         $("div.celebrityimg."+ celebrity[1]).hide();
-    });
+      });
+    }
+
+    function validateRadios(){
+      var names = ["dog","candy","saturday","vacation","console"];
+      names.forEach(function(name){
+        var isChecked = false;
+        $("input[name=" +name + "]").each(function(){
+          if ($(this).is(':checked')){
+            isChecked = true;
+          }
+        });
+        if(isChecked == false){
+          $("." + name).addClass("error");
+        }
+      })
+      
     }
   });
 });
