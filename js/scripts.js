@@ -17,19 +17,16 @@ $(document).ready(function(){
       }
     }
        
-        
-    
-    
     var mapToNumber = celebrityArray.map(item => item[2]);
     var highest = Math.max(...mapToNumber);
     var filteredCelebrities = celebrityArray.filter(function(celebrity){
       return celebrity[2] === highest; 
     });
-    console.log(filteredCelebrities);
+  
     
     filteredCelebrities.forEach(function(celebrity){
-        $("div.celebritydiv."+ celebrity[0]).show();
-        $("div.celebritydiv."+ celebrity[1]).show();
+        $("div.celebrityimg."+ celebrity[0]).show();
+        $("div.celebrityimg."+ celebrity[1]).show();
     });
   });
 });
