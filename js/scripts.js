@@ -1,6 +1,5 @@
 //business logic
 var celebrityArray = [["bradpitt","milakunis",0],["leonardodicaprio","jessicaalba",0],["mattdamon","natalieportman",0]];
-var nameArray = ["dog","candy","saturday","vacation","console"];
 
 function getFilteredCelebrities(){
     var mapToNumber = celebrityArray.map(item => item[2]);
@@ -17,26 +16,35 @@ function resetValues(){
   }
 };
 
+function scoreCelebrities(classArray){
+  classArray.forEach(function(item){
+    for(i = 0; i < celebrityArray.length; i++){
+        var classToArray = item.split(" ");
+        console.log(classToArray);
+        if(celebrityArray[i].includes(classToArray[0]) &&
+          celebrityArray[i].includes(classToArray[1]))
+          {
+            celebrityArray[i][2]++;
+          }
+    };
+  });
+}
+
+
 $(document).ready(function(){
   $("#formOne").submit(function(e){
     e.preventDefault();
 
     hide();
+    
+    var classArray = [];
+    $("input:checked").each(function(){
+      var classNames = $(this).attr('class');
+      classArray.push(classNames);
+    });
+    scoreCelebrities(classArray);
 
-    for(var i = 0; i < nameArray.length; i++){
-      for(var j = 0; j < celebrityArray.length; j++){
-        if(
-          $("input[name=" + nameArray[i] + "]"+":checked").hasClass(celebrityArray[j][0]) &&
-          $("input[name=" + nameArray[i] + "]"+":checked").hasClass(celebrityArray[j][1])
-          )
-          {
-            celebrityArray[j][2]++;
-          }   
-      }
-    }
-      
     var filteredCelebrities = getFilteredCelebrities();
-  
     $("#bestmatch").show();
     filteredCelebrities.forEach(function(celebrity){
         $("div.celebrityimg."+ celebrity[0]).show();
