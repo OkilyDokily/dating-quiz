@@ -5,5 +5,10 @@
 
 .celebrityimg img{
   float: left;
-  width: 200px;
+  width: auto;
+  height: 200px;
+}
+
+#bestmatch{
+  display: none;
 }
