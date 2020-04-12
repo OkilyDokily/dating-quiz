@@ -60,7 +60,6 @@ $(document).ready(function(){
       });
     }
 
-
     function validateRadios(){
       
       var noUnchecked = true;
@@ -82,26 +81,6 @@ $(document).ready(function(){
       })
       return noUnchecked;
     }
-
-    // function validateRadios(){
-    //   var names = ["dog","candy","saturday","vacation","console"];
-    //   var noUnchecked = true;
-    //   names.forEach(function(name){
-    //     var isChecked = false;
-    //     $("input[name=" +name + "]").each(function(){
-    //       if ($(this).is(':checked')){
-    //         isChecked = true;
-    //       }
-    //     });
-    //     if(isChecked == false){
-    //       $("." + name).addClass("has-error");
-    //       noUnchecked = false;
-    //       $("." + name).append("<span class='help-block'>Please make a selection</span>")
-    //     }
-        
-    //   })
-    //   return noUnchecked;
-    // }
 
     function removeErrorMessages(){
       $("div.question").removeClass("has-error")
