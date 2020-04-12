@@ -32,7 +32,9 @@ function scoreCelebrities(classArray){
 $(document).ready(function(){
   $("#formOne").submit(function(e){
     e.preventDefault();
-    validateRadios();
+    if(!validateRadios()){
+      return;
+    }
     hide();
     
     var classArray = [];
@@ -59,6 +61,7 @@ $(document).ready(function(){
 
     function validateRadios(){
       var names = ["dog","candy","saturday","vacation","console"];
+      var noUnchecked = true;
       names.forEach(function(name){
         var isChecked = false;
         $("input[name=" +name + "]").each(function(){
@@ -68,9 +71,11 @@ $(document).ready(function(){
         });
         if(isChecked == false){
           $("." + name).addClass("error");
+          noUnchecked = false;
         }
+        
       })
-      
+      return noUnchecked;
     }
   });
 });
