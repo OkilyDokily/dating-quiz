@@ -70,8 +70,9 @@ $(document).ready(function(){
           }
         });
         if(isChecked == false){
-          $("." + name).addClass("error");
+          $("." + name).addClass("has-error");
           noUnchecked = false;
+          $("." + name).append("<span class='help-block'>Please make a selection</span>")
         }
         
       })
