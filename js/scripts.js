@@ -53,6 +53,7 @@ $(document).ready(function(){
 
     function hide(){
       resetValues();
+      removeErrorMessages()
       celebrityArray.forEach(function(celebrity){
         $("div.celebrityimg."+ celebrity[0]).hide();
         $("div.celebrityimg."+ celebrity[1]).hide();
@@ -77,6 +78,11 @@ $(document).ready(function(){
         
       })
       return noUnchecked;
+    }
+
+    function removeErrorMessages(){
+      $("div.question").removeClass("has-error")
+      $("span.help-block").remove();
     }
   });
 });
