@@ -74,16 +74,17 @@ $(document).ready(function(){
        
         if(isChecked == false){
           $(this).closest(".question").addClass("has-error");
+          $(this).closest(".question").children("h1").addClass("help-block");
           noUnchecked = false;
           $(this).closest(".question").append("<span class='help-block'>Please make a selection</span>")
-        }
-        
+        } 
       })
       return noUnchecked;
     }
 
     function removeErrorMessages(){
       $("div.question").removeClass("has-error")
+      $(".help-block").removeClass("help-block");
       $("span.help-block").remove();
     }
   });
