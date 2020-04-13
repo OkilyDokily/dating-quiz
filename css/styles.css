@@ -1,9 +1,9 @@
 .celebrityimg {
-  display:none;  
+  display:none;
 }
 
 .celebrityimg img{
-  float: left;
+
   width: auto;
   height: 200px;
 }
